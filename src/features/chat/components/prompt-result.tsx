@@ -3,8 +3,15 @@ import DocumentDownloadIcon from "@/assets/images/svg/document-download.svg";
 import CopyIcon from "@/assets/images/svg/copy.svg";
 import RepeatIcon from "@/assets/images/svg/repeat.svg";
 import { Interaction } from "@/components/interaction";
+import TypeIt from "typeit-react";
 
 export const PromptResult: React.FC = () => {
+  const testMsg = `✅ Stylus Integration The project explicitly states that it is
+            "built on Arbitrum with Stylus," indicating the use of Arbitrum
+            Stylus for its smart contract development. The contracts are written
+            in Rust, compiled to WASM, and deployed on the Arbitrum Stylus
+            platform, leveraging its capabilities for efficient and secure
+            decentralized applications.`;
   return (
     <div className="flex flex-col gap-12 w-full h-full max-w-[492px] mx-auto">
       <div className="flex-1 w-full overflow-hidden overflow-y-auto rounded-[12px]">
@@ -30,16 +37,23 @@ export const PromptResult: React.FC = () => {
             Authentication: Implements secure login, including Google OAuth, to
             access the StampNet dashboard.​
             <br />
-            <br />✅ Stylus Integration The project explicitly states that it is
-            "built on Arbitrum with Stylus," indicating the use of Arbitrum
-            Stylus for its smart contract development. The contracts are written
-            in Rust, compiled to WASM, and deployed on the Arbitrum Stylus
-            platform, leveraging its capabilities for efficient and secure
-            decentralized applications.
+            <br />
+            <TypeIt
+                options={{
+                  strings: [`${testMsg}`],
+                  speed: 10,
+                  waitUntilVisible: true,
+                  afterComplete: function (instance:any) {
+                    instance.destroy();
+                  },
+                }}
+            />
             <br /> <br />
-            🔗 Live Demo A live version of StampNet is accessible at
-            stampnet.vercel.app, allowing users to experience the application's
-            functionalities firsthand.
+            <TypeIt>
+              🔗 Live Demo A live version of StampNet is accessible at
+              stampnet.vercel.app, allowing users to experience the application's
+              functionalities firsthand.
+            </TypeIt>
             <br />
             <br /> 📝 Summary StampNet effectively utilizes Arbitrum Stylus by
             <br /> <br />

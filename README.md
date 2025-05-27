@@ -59,6 +59,6 @@ export default tseslint.config({
 
 # To start the dev server
 
-1. Run `npm install` to install all dependencies
+1. Run `yarn install` to install all dependencies
 2. Create `.env` in root project. Ask admin for env content
-3. `npm run dev` to start the server
+3. `yarn dev` to start the server
