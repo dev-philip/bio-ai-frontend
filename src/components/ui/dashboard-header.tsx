@@ -7,6 +7,7 @@ import SearchIcon from "@/assets/images/svg/search.svg";
 import { useAuthStore } from "@/store/auth";
 import { ProfileMenu } from "./profile-menu";
 import { Interaction } from "../interaction";
+import { FullLogo } from "./full-logo";
 
 // Animation variants
 const headerVariants = {
@@ -45,13 +46,8 @@ export const DashboardHeader = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[73px]">
           <motion.div className="flex justify-between items-center h-full">
             {/* Logo/Brand */}
-            <motion.div
-              className="flex-shrink-0 flex items-center gap-2"
-              variants={itemVariants}
-            >
-              {/** TODO: Replace with logo */}
-              <div className="h-[20px] w-[20px] bg-[#D9D9D9] rounded-[4px]" />
-              <motion.h1 className="text-base text-gray-800">Tania</motion.h1>
+            <motion.div variants={itemVariants}>
+              <FullLogo />
             </motion.div>
 
             {/** Title? TODO: Clarify what this is from designer or timi */}
