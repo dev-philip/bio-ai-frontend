@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { AppRoutes } from "./routes";
-import { useAuthStore } from "@/store/auth";
+// import { useAuthStore } from "@/store/auth";
 
 function App() {
-  const { login } = useAuthStore();
+  // const { login } = useAuthStore();
 
-  useEffect(() => {
-    login("user@example.com", "password");
-  }, []);
+  // useEffect(() => {
+  //   login("user@example.com", "password");
+  // }, []);
 
   return (
     <>
