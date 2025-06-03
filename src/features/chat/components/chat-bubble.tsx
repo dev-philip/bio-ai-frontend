@@ -19,7 +19,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
         <RightTextContainer name={senderName} />
       )}
 
-      <div className="bg-surface-light dark:bg-surface-dark py-[10px] px-[12px] rounded-[12px]">
+      <div className="bg-surface-light dark:bg-surface-dark py-[10px] px-[12px] rounded-[12px] animate__animated animate__fadeInDown">
         <p className="text-text-light dark:text-text-dark text-base mb-2 text-sm">
           {message}
         </p>
