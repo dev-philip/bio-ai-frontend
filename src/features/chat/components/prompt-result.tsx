@@ -201,54 +201,6 @@ const handleCopyClick = () => {
 
   return (
     <div className="flex flex-col gap-12 w-full h-full max-w-[492px] mx-auto">
-<<<<<<< HEAD
-      <div className="flex-1 w-full overflow-hidden overflow-y-auto rounded-[12px]">
-        <div className="bg-surface-light dark:bg-surface-dark w-full rounded-[12px] py-[10px] px-[12px]">
-          <p className="text-sm">
-            ​Yes, the StampNet project by Kars07 integrates Arbitrum Stylus into
-            its architecture
-            <br />
-            <br />
-            🧩 What the Project Does StampNet is a decentralized time-stamping
-            system that enables users to upload various forms of media—such as
-            documents, videos, or text—and generates a timestamped hash stored
-            on the blockchain. This process provides cryptographic proof of a
-            file's existence at a specific time without storing the actual
-            content on-chain, thereby preserving privacy.
-            <br />
-            <br />
-            🛠️ Technologies Used
-            <br /> Smart Contracts: Developed using Rust and compiled to
-            WebAssembly (WASM), deployed on Arbitrum Stylus.
-            <br /> Frontend: Built with Next.js and styled using Tailwind CSS.
-            <br />
-            Authentication: Implements secure login, including Google OAuth, to
-            access the StampNet dashboard.​
-            <br />
-            <br />
-            <TypeIt
-              options={{
-                strings: [`${testMsg}`],
-                speed: 10,
-                waitUntilVisible: true,
-                afterComplete: function (instance: any) {
-                  instance.destroy();
-                },
-              }}
-            />
-            <br /> <br />
-            <TypeIt>
-              🔗 Live Demo A live version of StampNet is accessible at
-              stampnet.vercel.app, allowing users to experience the
-              application's functionalities firsthand.
-            </TypeIt>
-            <br />
-            <br /> 📝 Summary StampNet effectively utilizes Arbitrum Stylus by
-            <br /> <br />
-          </p>
-        </div>
-      </div>
-=======
           <div ref={scrollRef} className="flex flex-col gap-4 w-full h-full max-w-[492px] mx-auto overflow-y-auto">
 
               {reasonings.length == 0 && (
@@ -312,7 +264,6 @@ const handleCopyClick = () => {
             {/* Invisible scroll target */}
             {/* <div className={styles.stayAtButtom} ref={bottomRef} /> */}
           </div>
->>>>>>> connect-backend
 
       <div className="flex flex-roe justify-evenly gap-4 items-center">
         <Interaction onClick={handleAudioClick} className="flex flex-col items-center gap-1">
