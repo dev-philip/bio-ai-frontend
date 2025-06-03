@@ -30,6 +30,7 @@ export default defineConfig({
       "@/hooks": path.resolve(__dirname, "src/hooks"),
       "@/store": path.resolve(__dirname, "src/store"),
       "@/api": path.resolve(__dirname, "src/api"),
+      "@/pages": path.resolve(__dirname, "src/pages"),
     },
   },
   build: {
