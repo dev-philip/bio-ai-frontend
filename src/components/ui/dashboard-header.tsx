@@ -10,6 +10,10 @@ import { Interaction } from "../interaction";
 import { FullLogo } from "./full-logo";
 import { useAuth } from "@/features/auth/hooks/useAuth";
 
+import { useClaimStore } from "@/store/useClaimStore";
+
+import { LinearLoader, SpinningLoader } from "@/features/chat/components/loaders";
+
 // Animation variants
 const headerVariants = {
   hidden: { y: -100, opacity: 0 },
@@ -32,6 +36,7 @@ const itemVariants = {
 };
 
 export const DashboardHeader = () => {
+   const isClaimLoading = useClaimStore((state) => state.isClaimLoading);
   const avatarRef = useRef<HTMLButtonElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useAuthStore();
@@ -82,6 +87,8 @@ export const DashboardHeader = () => {
           </motion.div>
         </div>
       </motion.div>
+
+      {isClaimLoading && <LinearLoader />}
 
       {/* Popover Menu */}
       <Popover

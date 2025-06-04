@@ -20,9 +20,14 @@
     "motion": "^12.12.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-force-graph": "^1.47.6",
+    "react-loading-skeleton": "^3.5.0",
     "react-router-dom": "^7.6.0",
+    "react-textarea-autosize": "^8.5.9",
+    "react-toastify": "^11.0.5",
     "tailwindcss": "^4.1.7",
     "typeit-react": "^2.7.8",
+    "uuid": "^11.1.0",
     "zustand": "^5.0.5"
   },
   "devDependencies": {

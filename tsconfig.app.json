@@ -35,6 +35,7 @@
       "@/store/*": ["store/*"],
       "@/utils/*": ["utils/*"],
       "@/types/*": ["types/*"],
+      "@/pages/*": ["pages/*"]
     }
   },
   "include": ["src"]
