@@ -33,6 +33,8 @@
       "@/components/*": ["components/*"],
       "@/hooks/*": ["hooks/*"],
       "@/store/*": ["store/*"],
+      "@/utils/*": ["utils/*"],
+      "@/types/*": ["types/*"],
       "@/pages/*": ["pages/*"]
     }
   },

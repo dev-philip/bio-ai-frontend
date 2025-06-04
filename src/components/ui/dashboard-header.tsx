@@ -7,6 +7,8 @@ import SearchIcon from "@/assets/images/svg/search.svg";
 import { useAuthStore } from "@/store/auth";
 import { ProfileMenu } from "./profile-menu";
 import { Interaction } from "../interaction";
+import { FullLogo } from "./full-logo";
+import { useAuth } from "@/features/auth/hooks/useAuth";
 
 import { useClaimStore } from "@/store/useClaimStore";
 
@@ -37,7 +39,9 @@ export const DashboardHeader = () => {
    const isClaimLoading = useClaimStore((state) => state.isClaimLoading);
   const avatarRef = useRef<HTMLButtonElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, logout } = useAuthStore();
+  const { user } = useAuthStore();
+
+  const { logOut } = useAuth();
 
   return (
     <>
@@ -50,13 +54,8 @@ export const DashboardHeader = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[73px]">
           <motion.div className="flex justify-between items-center h-full">
             {/* Logo/Brand */}
-            <motion.div
-              className="flex-shrink-0 flex items-center gap-2"
-              variants={itemVariants}
-            >
-              {/** TODO: Replace with logo */}
-              <div className="h-[20px] w-[20px] bg-[#D9D9D9] rounded-[4px]" />
-              <motion.h1 className="text-base text-gray-800">Tania</motion.h1>
+            <motion.div variants={itemVariants}>
+              <FullLogo />
             </motion.div>
 
             {/** Title? TODO: Clarify what this is from designer or timi */}
@@ -97,7 +96,7 @@ export const DashboardHeader = () => {
         isOpen={isMenuOpen && Boolean(user)}
         onClose={() => setIsMenuOpen(false)}
       >
-        <ProfileMenu user={user!} onLogout={logout} />
+        <ProfileMenu user={user!} onLogout={logOut} />
       </Popover>
     </>
   );

@@ -1,4 +1,4 @@
-import type { ChatThread } from "../../../@types/models";
+import type { ChatThread } from "../../../types/models";
 import type React from "react";
 import { ChatBubble } from "./chat-bubble";
 import { ChatInput } from "./chat-input";

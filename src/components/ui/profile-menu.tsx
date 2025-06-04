@@ -1,6 +1,6 @@
 import type React from "react";
 import { Link } from "react-router-dom";
-import type { User } from "../../@types/models";
+import type { User } from "../../types/models";
 
 import UserIcon from "@/assets/images/svg/user.svg";
 import SettingIcon from "@/assets/images/svg/gear.svg";

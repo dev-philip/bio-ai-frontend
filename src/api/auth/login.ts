@@ -1,4 +1,4 @@
-import type { User } from "../../@types/models";
+import type { User } from "../../types/models";
 
 export const mockLogin = async (email: string, password: string) => {
   return new Promise<{ user: User; token: string }>((resolve, reject) => {
