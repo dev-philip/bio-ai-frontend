@@ -3,8 +3,11 @@ import classNames from "classnames";
 
 import GoogleIcon from "@/assets/images/svg/google.svg";
 import { FullLogo } from "@/components/ui/full-logo";
+import { useAuth } from "../hooks/useAuth";
 
 export const LoginPage = () => {
+  const { login } = useAuth();
+
   return (
     <div className="h-screen text-text-light dark:text-text-dark w-full flex flex-row items-stretch bg-background-light dark:bg-background-dark">
       <div className="flex-1">
@@ -32,6 +35,7 @@ export const LoginPage = () => {
                   "bg-transparent border-[1px] border-black dark:border-white rounded-[50px] py-[8px] px-[40px] w-full",
                   "hover:border-primary hover:bg-primary hover:text-white"
                 )}
+                onClick={() => login()}
               >
                 <div className="flex flex-row justify-center items-center gap-4">
                   <GoogleIcon />

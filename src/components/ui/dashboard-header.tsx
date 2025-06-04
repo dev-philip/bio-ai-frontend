@@ -8,6 +8,7 @@ import { useAuthStore } from "@/store/auth";
 import { ProfileMenu } from "./profile-menu";
 import { Interaction } from "../interaction";
 import { FullLogo } from "./full-logo";
+import { useAuth } from "@/features/auth/hooks/useAuth";
 
 // Animation variants
 const headerVariants = {
@@ -33,7 +34,9 @@ const itemVariants = {
 export const DashboardHeader = () => {
   const avatarRef = useRef<HTMLButtonElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, logout } = useAuthStore();
+  const { user } = useAuthStore();
+
+  const { logOut } = useAuth();
 
   return (
     <>
@@ -86,7 +89,7 @@ export const DashboardHeader = () => {
         isOpen={isMenuOpen && Boolean(user)}
         onClose={() => setIsMenuOpen(false)}
       >
-        <ProfileMenu user={user!} onLogout={logout} />
+        <ProfileMenu user={user!} onLogout={logOut} />
       </Popover>
     </>
   );

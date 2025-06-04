@@ -2,7 +2,8 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 import { mockLogin } from "@/api/auth/login";
-import type { AuthActions, AuthState } from "../@types/store";
+import type { AuthActions, AuthState } from "../types/store";
+import { google_login } from "@/api/auth/google-login";
 
 export const useAuthStore = create<AuthState & AuthActions>()(
   persist(
@@ -29,6 +30,28 @@ export const useAuthStore = create<AuthState & AuthActions>()(
         } catch (error) {
           set({
             error: error instanceof Error ? error.message : "Login failed",
+            isLoading: false,
+          });
+        }
+      },
+
+      googleLogin: async (code: string) => {
+        try {
+          set({ isLoading: true, error: null });
+
+          const response = await google_login({ code });
+          console.log("Response from Google Login API:", response);
+
+          set({
+            user: response.user_info,
+            token: response.access_token,
+            isAuthenticated: true,
+            isLoading: false,
+          });
+        } catch (error) {
+          set({
+            error:
+              error instanceof Error ? error.message : "Google login failed",
             isLoading: false,
           });
         }

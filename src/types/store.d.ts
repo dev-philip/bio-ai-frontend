@@ -10,6 +10,7 @@ export type AuthState = {
 
 export type AuthActions = {
   login: (email: string, password: string) => Promise<void>;
+  googleLogin: (code: string) => Promise<void>;
   logout: () => void;
   setUser: (user: User) => void;
   clearError: () => void;
