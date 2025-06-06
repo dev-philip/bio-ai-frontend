@@ -1,3 +1,3 @@
 export default {
-  exchangeGoogleAuthCode: "/api/v1/auth/google",
+  exchangeGoogleAuthCode: "/auth/google/callback",
 };

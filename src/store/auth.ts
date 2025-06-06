@@ -24,7 +24,7 @@ export const useAuthStore = create<AuthState & AuthActions>()(
           set({
             user: response.user,
             token: response.token,
-            isAuthenticated: false,
+            isAuthenticated: true,
             isLoading: false,
           });
         } catch (error) {
@@ -38,7 +38,6 @@ export const useAuthStore = create<AuthState & AuthActions>()(
       googleLogin: async (code: string) => {
         try {
           set({ isLoading: true, error: null });
-
           const response = await google_login({ code });
           console.log("Response from Google Login API:", response);
 
@@ -48,6 +47,8 @@ export const useAuthStore = create<AuthState & AuthActions>()(
             isAuthenticated: true,
             isLoading: false,
           });
+
+          console.log("set login state");
         } catch (error) {
           set({
             error:
@@ -63,6 +64,7 @@ export const useAuthStore = create<AuthState & AuthActions>()(
           token: null,
           isAuthenticated: false,
         });
+        console.log("I am logging out");
       },
 
       setUser: (user) => set({ user }),
@@ -75,6 +77,7 @@ export const useAuthStore = create<AuthState & AuthActions>()(
       partialize: (state) => ({
         token: state.token,
         user: state.user,
+        isAuthenticated: state.isAuthenticated,
       }),
     }
   )

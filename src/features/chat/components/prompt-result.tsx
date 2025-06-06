@@ -16,6 +16,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { useModelStore } from "@/store/useModelStore";
 import axios from "axios";
 import { useChatStore } from "@/store/useChatStore";
+import { useAuthStore } from "@/store/auth";
 
 export const PromptResult: React.FC = () => {
     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -28,6 +29,8 @@ export const PromptResult: React.FC = () => {
     const claimDataForChat = useClaimStore((state) => state.claimDataForChat);
     const setClaimDataForChat =  useClaimStore((state) => state.setClaimDataForChat);
     const { addMessage } = useChatStore();
+    const { user, isAuthenticated } = useAuthStore();
+    
     
 
 
@@ -93,6 +96,8 @@ useEffect(() => {
   }, [reasonings.length]);
 
   const handleAudioClick = () => {
+    console.log(user);
+    console.log(isAuthenticated);
 
     if (reasonings.length > 0) {
         toast.success("Audio Button");
@@ -192,12 +197,10 @@ const handleCopyClick = () => {
   }
   };
 
-  const greetingHTML = `
-  <h1 class="${styles.greeting}">
-    <span class="${styles.hello}">Hello,</span> 
-    <span class="${styles.name}">Philip Awobusuyi</span>
-  </h1>
-`;
+
+const greetingHTML = isAuthenticated
+  ? `<h1 class="${styles.greeting}"><span class="${styles.hello}">Hello, </span><span class="${styles.name}">${user?.name}.</span></h1>`
+  : `<h1 class="${styles.greeting}"><span class="${styles.hello}">Hello, </span><span class="${styles.name}">Bio Hackathon.</span></h1>`;
 
   return (
     <div className="flex flex-col gap-12 w-full h-full max-w-[492px] mx-auto">

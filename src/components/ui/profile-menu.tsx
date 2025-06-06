@@ -29,7 +29,7 @@ export const ProfileMenu: React.FC<IProfileMenuProps> = (props) => {
         </div>
       </div>
 
-      <div className="p-[5px] border-b border-b-[#E2E8F0]">
+      {/* <div className="p-[5px] border-b border-b-[#E2E8F0]">
         <Link
           to={"#"}
           className="block px-[8px] py-[6px] flex flex-row items-center gap-2"
@@ -45,9 +45,9 @@ export const ProfileMenu: React.FC<IProfileMenuProps> = (props) => {
           <SettingIcon />
           <p>Settings</p>
         </Link>
-      </div>
+      </div> */}
 
-      <div className="p-[5px] border-b border-b-[#E2E8F0]">
+      {/* <div className="p-[5px] border-b border-b-[#E2E8F0]">
         <Link
           to={"#"}
           className="block px-[8px] py-[6px] flex flex-row items-center gap-2"
@@ -71,11 +71,11 @@ export const ProfileMenu: React.FC<IProfileMenuProps> = (props) => {
           <TermsIcon />
           <p>Terms and policies</p>
         </Link>
-      </div>
+      </div> */}
 
       <div className="px-[5px] border-b border-b-[#E2E8F0]">
         <Link
-          to={"#"}
+          to={"/github"}
           className="block px-[8px] py-[6px] flex flex-row items-center gap-2"
         >
           <GithubIcon />
@@ -83,7 +83,7 @@ export const ProfileMenu: React.FC<IProfileMenuProps> = (props) => {
         </Link>
 
         <Link
-          to={"#"}
+          to={"/api"}
           className="block px-[8px] py-[6px] flex flex-row items-center gap-2"
         >
           <CloudIcon />
@@ -95,7 +95,7 @@ export const ProfileMenu: React.FC<IProfileMenuProps> = (props) => {
         <button
           type="button"
           onClick={onLogout}
-          className="px-[8px] py-[6px] flex flex-row items-center gap-2"
+          className="px-[8px] py-[6px] flex flex-row items-center gap-2 cursor-pointer"
         >
           <LogoutIcon />
           <p>Logout</p>

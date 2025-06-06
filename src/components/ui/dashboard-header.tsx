@@ -9,6 +9,7 @@ import { ProfileMenu } from "./profile-menu";
 import { Interaction } from "../interaction";
 import { FullLogo } from "./full-logo";
 import { useAuth } from "@/features/auth/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 import { useClaimStore } from "@/store/useClaimStore";
 
@@ -40,6 +41,7 @@ export const DashboardHeader = () => {
   const avatarRef = useRef<HTMLButtonElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useAuthStore();
+   const navigate = useNavigate();
 
   const { logOut } = useAuth();
 
@@ -75,11 +77,16 @@ export const DashboardHeader = () => {
 
               <Interaction
                 ref={avatarRef}
-                onClick={() => setIsMenuOpen((prev) => !prev)}
+                onClick={() => {
+                  if(!user){
+                    navigate("/auth/login");
+                  }
+                  setIsMenuOpen((prev) => !prev)}
+                }
                 className="w-fit h-fit bg-transparent outline-none border-none"
-                title="Profile"
+                title={user ? "Profile" : "Login"}
                 type="button"
-                disabled={!user}
+                // disabled={!user}
               >
                 <CircleAvatar src={defaultAvatar} size={32} />
               </Interaction>
@@ -94,7 +101,9 @@ export const DashboardHeader = () => {
       <Popover
         anchorEl={avatarRef.current}
         isOpen={isMenuOpen && Boolean(user)}
-        onClose={() => setIsMenuOpen(false)}
+        onClose={() => {
+          setIsMenuOpen(false)
+        }}
       >
         <ProfileMenu user={user!} onLogout={logOut} />
       </Popover>
